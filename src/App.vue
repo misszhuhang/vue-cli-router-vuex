@@ -8,14 +8,19 @@
       <!-- 动态路由 -->
       <router-link to="/user/123">User123</router-link>
       <router-link to="/user/456">User456</router-link>
+      <first></first>
     </header>
     <router-view/>
   </div>
 </template>
 
 <script>
+import first from "@/components/first.vue";
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+      first,
+    }
 }
 </script>
 
