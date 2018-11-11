@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>home</h1>
-        <p>{{msg}}</p>
+        <p @click="hh()">{{recieve}}</p>
         <p>
             <router-link to="/home/phone">手机</router-link>
             <router-link to="/home/tablet">平板</router-link>
@@ -14,7 +14,15 @@
 export default {
     data(){
         return{
-            msg: "我是home组件"
+            msg: "我是home组件",
+            recieve: "qqq",
+        }
+    },
+    methods:{
+        hh(){
+            this.$eventHub.$on('roomChoosed', (val)=>{
+                this.recieve = val;
+            });
         }
     }
 }

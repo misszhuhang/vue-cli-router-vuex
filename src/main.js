@@ -4,7 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-
+import EventHub from './eventHub';
+import EventHubAction from './eventHubAction';
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
@@ -15,3 +16,8 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+/*事件中心*/
+Vue.use(EventHub);
+
+/*事件中心action*/
+Vue.use(EventHubAction);

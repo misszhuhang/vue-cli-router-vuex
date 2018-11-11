@@ -3,12 +3,13 @@
     <img src="./assets/logo.png">
     <header>
       <!-- 静态路由 -->
-      <router-link to="/home">home</router-link>
-      <router-link to="/about">about</router-link>
+      <!-- <router-link to="/home">home</router-link> -->
+      <!-- <router-link to="/about">about</router-link> -->
+      <router-link to="/com">communication</router-link>
       <!-- 动态路由 -->
-      <router-link to="/user/123">User123</router-link>
-      <router-link to="/user/456">User456</router-link>
-      <first></first>
+      <!-- <router-link to="/user/123">User123</router-link> -->
+      <!-- <router-link to="/user/456">User456</router-link> -->
+      <!-- <first></first> -->
     </header>
     <router-view/>
   </div>

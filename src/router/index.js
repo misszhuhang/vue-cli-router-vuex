@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import home from '@/components/home';
 import about from '@/components/about';
+import com from '@/components/communication';
 import user from '@/components/user';
 import phone from '@/components/phone';
 import tablet from '@/components/tablet';
@@ -52,6 +53,10 @@ export default new Router({
     {
       path: '/',
       redirect: '/home' 
+    },
+    {
+      path: '/com',
+      component: com
     },
     {
       path: '/user/:id',
