@@ -1,5 +1,54 @@
+<style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style>
+
 <template>
     <div>
+        <button @click="show = !show">
+            Toggle
+        </button>
+        <transition name="slide-fade" enter-active-class="animated tada" leave-active-class="animated bounceOutRight">
+            <p v-if="show">transition</p>
+        </transition>
+        <transition name="fade" :duration="{ enter: 500, leave: 800 }">
+            <p v-if="show">css</p>
+        </transition> 
+        <transition name="bounce">
+            <p v-if="show">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.</p>
+        </transition>
         <h1>
             {{vuex}}
         </h1>
@@ -21,12 +70,13 @@ export default {
         return{
             msg: "我是home组件",
             recieve: "qqq",
-            vuex:this.$store.state.collects
+            vuex:this.$store.state.collects,
+            show: true
         }
     },
     mounted(){
         // this.$store.dispatch('showFooter') 
-        alert(this.$store.state.count)
+        // alert(this.$store.state.count)
         // setTimeout(() => {
         //     alert(this.$store.state.count)
         // }, 3000);
